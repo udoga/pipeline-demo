@@ -1,5 +1,5 @@
+#include <gtest/gtest.h>
 #include "Enroller.h"
-#include "TestUtil.h"
 
 namespace demo {
     class DummySubscriber {

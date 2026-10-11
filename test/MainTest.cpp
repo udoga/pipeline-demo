@@ -1,4 +1,4 @@
-#include "TestUtil.h"
+#include <gtest/gtest.h>
 #include "Types.h"
 
 i32 main(i32 argc, char** argv) {

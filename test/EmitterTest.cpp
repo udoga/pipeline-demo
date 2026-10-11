@@ -1,6 +1,6 @@
+#include <gtest/gtest.h>
 #include "Collector.h"
 #include "Emitter.h"
-#include "TestUtil.h"
 
 namespace demo {
     class EmitterTest: public ::testing::Test {
