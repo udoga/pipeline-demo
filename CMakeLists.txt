@@ -1,27 +1,18 @@
 cmake_minimum_required(VERSION 3.5)
-project("event-flow")
+project(pipeline-demo)
+
 set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall")
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wall -O3 -march=native")
-set(DIR_LIB "/usr/local/lib")
-set(DIR_INCLUDE "/usr/local/include")
-set(DIR_BUILD ".")
+add_compile_options(-Wall)
+include_directories(header)
 
-file(COPY resource DESTINATION ${DIR_BUILD})
+file(COPY resource DESTINATION ${CMAKE_BINARY_DIR})
 file(GLOB SOURCES "source/*.cpp")
-file(GLOB HEADERS "header/*.h")
 file(GLOB TESTS "test/*.cpp")
-list(REMOVE_ITEM SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/source/Main.cpp")
+list(REMOVE_ITEM SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/source/PipelineDemo.cpp")
 
-include_directories(${DIR_INCLUDE} header)
-link_directories(${DIR_LIB})
-
-add_library(${PROJECT_NAME} ${SOURCES})
-add_executable(Main source/Main.cpp ${SOURCES})
-add_executable(MainTest ${TESTS} ${SOURCES})
-
-target_link_libraries(${PROJECT_NAME} INTERFACE ${EXT_LIBS})
-target_link_libraries(Main ${PROJECT_NAME})
-target_link_libraries(MainTest gtest ${PROJECT_NAME})
+add_executable(PipelineDemo source/PipelineDemo.cpp ${SOURCES})
+add_executable(PipelineDemoTest ${TESTS} ${SOURCES})
+target_link_libraries(PipelineDemoTest gtest)

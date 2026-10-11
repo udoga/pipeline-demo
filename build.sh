@@ -6,4 +6,4 @@ mkdir build
 cd build
 cmake ..
 make -j 4
-./MainTest
+./PipelineDemoTest

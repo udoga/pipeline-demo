@@ -8,7 +8,7 @@
 namespace demo {
     class TextReader: public Listener, public Emitter<std::string> {
     public:
-        TextReader(const std::string& path, bool hasTitle);
+        TextReader(const std::string& path, bool skipTitle);
         bool left() const;
         void listen() override;
     private:
