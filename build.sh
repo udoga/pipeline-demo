@@ -1,8 +1,7 @@
 #!/bin/bash
 set -e
 
-rm -rf build
-mkdir build
+mkdir -p build
 cd build
 cmake ..
 make -j 4

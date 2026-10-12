@@ -2,7 +2,7 @@
 
 A minimal event-driven C++ pipeline demonstrating a structure I have used in production systems.
 
-The pipeline reads packet capture CSV data, parses each row, serializes the payload bytes, and writes them to a binary output file.
+The pipeline reads packet-capture CSV data and writes the payload bytes to a binary file.
 
 ```text
 TextReader -> Parser<PacketCapture> -> Serializer<PacketCapture> -> BinaryWriter
